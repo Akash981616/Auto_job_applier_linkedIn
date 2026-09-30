@@ -80,7 +80,7 @@ disable_extensions = False          # True or False, Note: True or False are cas
 
 # Dry run: fill in every application and stop at the Review step WITHOUT submitting.
 # Useful for testing the bot, or for checking what it would answer before trusting it.
-stop_before_submit = False          # True or False, Note: True or False are case-sensitive
+stop_before_submit = True           # True or False, Note: True or False are case-sensitive
 
 # Run in safe mode. Set this true if chrome is taking too long to open or if you have multiple profiles in browser. This will open chrome in guest profile!
 safe_mode = True                    # True or False, Note: True or False are case-sensitive

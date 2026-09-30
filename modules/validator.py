@@ -158,8 +158,11 @@ def validate_secrets() -> None | ValueError | TypeError:
     global __validation_file_path
     __validation_file_path = "config/secrets.py"
 
-    check_string(username, "username", min_length=5)
-    check_string(password, "password", min_length=5)
+    # Credentials are optional: an empty pair means use an existing browser
+    # session or allow the user to log in manually in the visible Chrome window.
+    if username or password:
+        check_string(username, "username", min_length=5)
+        check_string(password, "password", min_length=5)
 
     check_boolean(use_AI, "use_AI")
     check_string(llm_api_url, "llm_api_url", min_length=5)
@@ -218,4 +221,3 @@ def validate_config() -> bool | ValueError | TypeError:
     # validate_String(chatGPT_password, "chatGPT_password")
     # validate_String(chatGPT_resume_chat_title, "chatGPT_resume_chat_title")
     return True
-
